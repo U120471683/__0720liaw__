@@ -8,4 +8,4 @@ def main():
     tools.file.record_info(log_path)
     
 if __name__ == '__main__':
-    main()f
+    main()
