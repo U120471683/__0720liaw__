@@ -1,3 +1,6 @@
+
+#  用者按下放開
+
 import signal
 from gpiozero import Button
 

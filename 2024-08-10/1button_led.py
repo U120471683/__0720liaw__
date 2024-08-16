@@ -1,3 +1,7 @@
+
+#  1個按鍵雨一個LED,按鍵壓一下LED亮-->開 , 按鍵再壓一下LED熄滅-->關
+#  並且顯示日期時間
+
 import signal
 from gpiozero import Button,LED
 from datetime import datetime
@@ -10,9 +14,9 @@ def user_release():
     print(now_str)
 
     if led.is_lit:
-        print('燈是開的')
+        print('燈是開的\n\n')
     else:
-        print('燈是關的')
+        print('燈是關的\n')
 
 
 if __name__ == '__main__':

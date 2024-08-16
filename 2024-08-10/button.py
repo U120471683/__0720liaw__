@@ -1,3 +1,6 @@
+
+#  Button is not pressed & Button is pressed
+
 from gpiozero import Button
 
 button = Button(pin=18)
