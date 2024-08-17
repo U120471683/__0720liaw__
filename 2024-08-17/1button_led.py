@@ -5,6 +5,7 @@
 import signal
 from gpiozero import Button,LED
 from datetime import datetime
+import paho.mqtt.publish as publish
 
 def user_release():
     print("使用者按下放開")
