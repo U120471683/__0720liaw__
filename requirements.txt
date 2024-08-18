@@ -3,4 +3,4 @@ RPi.GPIO
 lgpio
 gpiozero
 paho-mqtt 
-python-dot-env
+python-dotenv
