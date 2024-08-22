@@ -1,7 +1,4 @@
-#import paho.mqtt.client as mqtt
-#import redis
-#from dotenv import load_dotenv
-#import os
+
 import paho.mqtt.client as mqtt
 import redis
 from dotenv import load_dotenv
