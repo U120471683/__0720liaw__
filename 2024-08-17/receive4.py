@@ -2,8 +2,6 @@
 #import redis
 #from dotenv import load_dotenv
 #import os
-
-#load_dotenv()
 import paho.mqtt.client as mqtt
 import redis
 from dotenv import load_dotenv
@@ -11,8 +9,7 @@ import os
 
 load_dotenv()
 
-#redis_conn = redis.Redis(host=os.environ['REDIS_HOST'], port=6379,password=os.environ['REDIS_PASSWORD'])
-#rendern_redis_conn=redis=redis.Redis.fromurl(os.environ['RENDER_REDIS'])
+
 redis_conn = redis.Redis(host=os.environ['REDIS_HOST'], port=6379,password=os.environ['REDIS_PASSWORD'])
 render_redis_conn = redis.Redis.from_url(os.environ['RENDER_REDIS'])
 
@@ -20,7 +17,7 @@ def on_message(mosq, obj, msg):
     topic = msg.topic
     message = msg.payload.decode('utf-8')
     redis_conn.rpush(topic,message)
-    #render_redis_conn.rpush(topic.message)
+    
     render_redis_conn.rpush(topic,message)
     print(f"topic={topic},message:{message}")
 
