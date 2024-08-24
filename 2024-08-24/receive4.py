@@ -3,6 +3,8 @@ import paho.mqtt.client as mqtt
 import redis
 from dotenv import load_dotenv
 import os
+from tools import file
+
 
 load_dotenv()
 
