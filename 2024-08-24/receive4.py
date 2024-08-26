@@ -31,4 +31,4 @@ if __name__ == '__main__':
     client.on_message = on_message
     client.connect(os.environ['MQTT_SERVER'])
     client.subscribe('501教室/老師桌燈',qos=2)
-     client.loop_forever()
+    client.loop_forever()

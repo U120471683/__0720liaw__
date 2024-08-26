@@ -32,3 +32,4 @@ st.dataframe(df1,
                  "status":st.column_config.CheckboxColumn(label='按鈕狀態',width='small'),
                  "date":st.column_config.DatetimeColumn(label='時間',width='medium')
              })
+             

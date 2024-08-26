@@ -19,16 +19,7 @@ str_list = [bytes_str.decode('utf-8') for bytes_str in reversed(bytes_list)]
 
 dict_list = [json.loads(string) for string in str_list]
 
-df1 = pd.DataFrame(dict_list)
-
 st.write(dict_list)
 
 st.title("訓練通教室")
 st.header("感測器:blue[cool] :sunglasses:")
-#st.dataframe(df1)
-st.dataframe(df1,
-             hide_index=True,
-             column_config={
-                 "status":st.column_config.CheckboxColumn(label='按鈕狀態',width='small'),
-                 "date":st.column_config.DatetimeColumn(label='時間',width='medium')
-             })
