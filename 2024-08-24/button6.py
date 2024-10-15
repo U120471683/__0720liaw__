@@ -3,7 +3,7 @@ from gpiozero import Button,LED
 from datetime import datetime
 import paho.mqtt.publish as publish
 import os
-
+from dotenv import load_dotenv
 load_dotenv()
 
 def user_release():
@@ -11,28 +11,23 @@ def user_release():
     led.toggle()
     now = datetime.now()
     now_str = now.strftime('%Y-%m-%d %H:%M:%S')
-
     print(now_str)
     if led.is_lit:
         message = f'''{{
-            "status":true,
+            "status":"true",
             "date":"{now_str}",
             "topic":"501教室/老師桌燈"
         }}'''
-        # message = "燈是開的"
         print(message)
         publish.single(topic='501教室/老師桌燈',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_USERNAME'],'password':os.environ['MQTT_PASSWORD']})
-        #publish.single(topic='501教室/老師桌燈',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_NAME'],'password':os.environ['MQTT_PASSWORD']})
     else:
         message = f'''{{
-            "status":false,
+            "status":"false",
             "date":"{now_str}",
             "topic":"501教室/老師桌燈"
-        }}'''
-        #  message = "燈是關的"
+        }}''' 
         print(message)
         publish.single(topic='501教室/老師桌燈',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_USERNAME'],'password':os.environ['MQTT_PASSWORD']})
-        #publish.single(topic='501教室/老師桌燈',payload=message,hostname='127.0.0.1',qos=2,auth={'username':os.environ['MQTT_NAME'],'password':os.environ['MQTT_PASSWORD']})
 
 if __name__ == '__main__':
     button = Button(pin=18)

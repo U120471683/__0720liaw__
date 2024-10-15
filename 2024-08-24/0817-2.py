@@ -1,13 +1,8 @@
 import paho.mqtt.client as mqtt
-import redis
-
-redis_conn = redis.Redis(host='localhost', port=6379,password='1234')
-
 
 def on_message(mosq, obj, msg):
     topic = msg.topic
     message = msg.payload.decode('utf-8')
-    redis_conn.rpush(topic,message)
     print(f"topic={topic},message:{message}")
 
 if __name__ == '__main__':
