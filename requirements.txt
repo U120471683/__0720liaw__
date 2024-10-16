@@ -2,8 +2,8 @@ redis
 RPi.GPIO
 lgpio
 gpiozero
-paho-mqtt 
-python-dotenv
-streamlit
-pandas
-streamlit-autorefresh
+#paho-mqtt 
+#python-dotenv
+#streamlit
+#pandas
+#streamlit-autorefresh
