@@ -3,8 +3,8 @@ import paho.mqtt.client as mqtt
 import redis
 
 
-redis_conn = redis.Redis(host='localhost', port=6379,password='1234')
-
+redis_conn = redis.Redis(host='localhost', port=6379,password='raspberry')
+print(redis_conn.ping())
 
 def on_message(mosq, obj, msg):
     topic = msg.topic

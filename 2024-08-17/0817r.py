@@ -1,8 +1,8 @@
 import paho.mqtt.client as mqtt
 import redis
 
-redis_conn = redis.Redis(host='localhost', port=6379,password='1234')
-
+connection = redis.Redis(host='192.168.1.125',port=6379) #连接redis server 
+print(connection.ping()) #测试是否连接成功
 
 def on_message(mosq, obj, msg):
     topic = msg.topic
@@ -11,8 +11,12 @@ def on_message(mosq, obj, msg):
     print(f"topic={topic},message:{message}")
 
 if __name__ == '__main__':
+
+    print('1')
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.on_message = on_message
+
     client.connect('127.0.0.1')
     client.subscribe('501教室/老師桌燈',qos=2)
+    print('1')
     client.loop_forever()
