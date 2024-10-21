@@ -11,6 +11,11 @@ def user_release():
 
     print(now_str)
     if led.is_lit:
+        #message = '{
+        #    "status":true,\
+        #    "date":"2024/08/18 14:22:56",\
+        #    "topic":"501教室/老師桌燈"\
+        #}'
         message = '''{
             "status":true,
             "date":"2024/08/18 14:22:56",
